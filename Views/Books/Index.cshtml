@@ -1,0 +1,84 @@
+﻿@model IEnumerable<LibraryManagementSystem.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+    var userRole = ViewBag.UserRole as string;
+}
+@* Including the jquery *@
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<header>
+<h1>Book Dashboard</h1>
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container-fluid">
+            <a id="createBook" asp-action="Create"> Add Book</a>
+    </div>
+</nav>
+</header>
+<body>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Isbn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PublishedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CopiesAvailable)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Isbn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublishedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CopiesAvailable)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.BookId">Details</a> 
+                <a class="edit-link" asp-action="Edit" asp-route-id="@item.BookId">Edit</a> 
+                <a class="delete-link" asp-action="Delete" asp-route-id="@item.BookId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+ <script> $(document).ready(function() 
+                { 
+                  var userRole = '@ViewBag.UserRole';
+                    console.log("UserRole:", userRole);
+                         if (userRole !== 'Librarian')
+                         {
+                            $('#createBook').hide(); // Hide Create link for non-librari
+                            $('.edit-link').hide(); // Hide Edit links for non-librarians
+                            $('.delete-link').hide(); // Hide Delete links for non-librarians
+                         }
+                }); 
+  </script>

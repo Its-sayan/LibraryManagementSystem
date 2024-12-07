@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Dashboard";
+}
+ 
+
+@{
+    if (TempData["succerss"] != null)
+    {
+        <p style="background-color:aquamarine">@TempData["succerss"]</p>
+    }
+}
+<h1>Librarian Dashboard</h1>
+<h2>@ViewBag.Librariansession</h2>
+<a asp-controller= "Librarians" asp-action="Logout">Logout</a>

@@ -1,5 +1,5 @@
 # Library Management System
-
+![Screenshot of the Project](Project_Screenshot.png)
 A Library Management System (LMS) built using ASP.NET Core MVC and SQL Server. This project includes functionalities for managing books, members, transactions, and librarians, along with a custom login and registration system.
 
 ## Table of Contents
@@ -10,9 +10,6 @@ A Library Management System (LMS) built using ASP.NET Core MVC and SQL Server. T
 - [Database Design](#database-design)
 - [CI/CD Pipeline](#cicd-pipeline)
 - [Testing](#testing)
-- 
-## Screenshot
-![Screenshot of the Project](Project_Screenshot.png)
 
 ## Features
 - User Management: Register, Login, Logout, Role-based access control.

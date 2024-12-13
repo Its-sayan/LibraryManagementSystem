@@ -12,7 +12,7 @@ A Library Management System (LMS) built using ASP.NET Core MVC and SQL Server. T
 - [Testing](#testing)
 - 
 ## Screenshot
-![Screenshot of the Project](Project_screenshot.png)
+![Screenshot of the Project](Project_Screenshot.png)
 
 ## Features
 - User Management: Register, Login, Logout, Role-based access control.
